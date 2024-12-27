@@ -1,0 +1,322 @@
+units:
+  kx: cx
+  ky: cy
+  px: kx+6
+  py: ky+6
+  dpx: kx+10
+  dpy: ky+10
+  screw_size: 1.5
+  standoff_size: 2.5
+points:
+  zones:
+    matrix:
+      rotate: -15 # -10
+      anchor:
+        shift: [100, -100]
+      key:
+        padding: 1ky
+        spread: 1kx
+      columns:
+        pinky.key:
+          col_net: P18
+        ring.key:
+          stagger: 3
+          col_net: P15
+        middle.key:
+          stagger: 3
+          col_net: P5
+        index.key:
+          stagger: -3
+          col_net: P7
+      rows:
+        home:
+          row_net: P16
+          mirror.row_net: P6
+    thumbs:
+      key:
+        padding: 1ky
+        spread: 1kx
+      anchor:
+        ref: matrix_index_home
+        shift: [-21, -49]
+        rotate: 0 # -5
+      columns:
+        near.key:
+          col_net: P18
+        home:
+          key.col_net: P15
+          rows:
+            thumb:
+            top:
+              row_net: P8
+        far.key:
+          col_net: P5
+      rows:
+        thumb:
+          row_net: P10
+          mirror.row_net: P9
+    escape:
+      anchor:
+        shift: [152, -170] # [163, -160]
+      columns:
+        main.key:
+          col_net: P7
+          row_net: P8
+          asym: source
+  mirror: &mirror
+    ref: matrix_index_home
+    distance: 56
+outlines:
+  raw:
+    - what: rectangle
+      where: true
+      size: [px, py]
+  keys:
+    - what: rectangle
+      where: true
+      size: [kx-0.5, ky-0.5]
+  board:
+    - what: polygon
+      operation: stack
+      fillet: 2
+      points:
+        - ref: matrix_pinky_home
+          shift: [-0.5px, -0.5py]
+        - ref: matrix_pinky_home
+          shift: [-0.5px, 0.5py]
+        - ref: matrix_ring_home
+          shift: [-0.5px, 0.5py]
+        - ref: matrix_middle_home
+          shift: [-0.5px, 0.5py]
+        - ref: matrix_middle_home
+          shift: [0.5px, 0.5py]
+        - ref: matrix_index_home
+          shift: [0.5px, 0.5py]
+        - ref: mirror_matrix_index_home
+          shift: [0.5px, 0.5py]
+        - ref: mirror_matrix_middle_home
+          shift: [0.5px, 0.5py]
+        - ref: mirror_matrix_middle_home
+          shift: [-0.5px, 0.5py]
+        - ref: mirror_matrix_ring_home
+          shift: [-0.5px, 0.5py]
+        - ref: mirror_matrix_pinky_home
+          shift: [-0.5px, 0.5py]
+        - ref: mirror_matrix_pinky_home
+          shift: [-0.5px, -0.5py]
+        - ref: mirror_thumbs_near_thumb
+          shift: [-0.5px, -0.5py]
+        - ref: mirror_thumbs_far_thumb
+          shift: [0.5px, -0.5py]
+        - ref: thumbs_far_thumb
+          shift: [0.5px, -0.5py]
+        - ref: thumbs_near_thumb
+          shift: [-0.5px, -0.5py]
+  big_board:
+    - what: polygon
+      operation: stack
+      fillet: 2
+      points:
+        - ref: matrix_pinky_home
+          shift: [-0.5dpx, -0.5dpy]
+        - ref: matrix_pinky_home
+          shift: [-0.5dpx, 0.5dpy]
+        - ref: matrix_ring_home
+          shift: [-0.5dpx, 0.5dpy]
+        - ref: matrix_middle_home
+          shift: [-0.5dpx, 0.5dpy]
+        - ref: matrix_middle_home
+          shift: [0.5dpx, 0.5dpy]
+        - ref: matrix_index_home
+          shift: [0.5dpx, 0.5dpy]
+        - ref: mirror_matrix_index_home
+          shift: [0.5dpx, 0.5dpy]
+        - ref: mirror_matrix_middle_home
+          shift: [0.5dpx, 0.5dpy]
+        - ref: mirror_matrix_middle_home
+          shift: [-0.5dpx, 0.5dpy]
+        - ref: mirror_matrix_ring_home
+          shift: [-0.5dpx, 0.5dpy]
+        - ref: mirror_matrix_pinky_home
+          shift: [-0.5dpx, 0.5dpy]
+        - ref: mirror_matrix_pinky_home
+          shift: [-0.5dpx, -0.5dpy]
+        - ref: mirror_thumbs_near_thumb
+          shift: [-0.5dpx, -0.5dpy]
+        - ref: mirror_thumbs_far_thumb
+          shift: [0.5dpx, -0.5dpy]
+        - ref: thumbs_far_thumb
+          shift: [0.5dpx, -0.5dpy]
+        - ref: thumbs_near_thumb
+          shift: [-0.5dpx, -0.5dpy]
+  combo:
+    - name: board
+    - operation: subtract
+      name: keys
+  mounting:
+    - what: circle
+      radius: screw_size
+      where:
+        ref: matrix_pinky_home
+        shift: [0, -1ky]
+    - what: circle
+      radius: screw_size
+      where:
+        ref: mirror_matrix_pinky_home
+        shift: [0, -1ky]
+    - what: circle
+      radius: screw_size
+      where:
+        ref: escape_main
+        shift: [0, -1.25ky]
+    - what: circle
+      radius: screw_size
+      where:
+        ref: escape_main
+        shift: [1ky, 1ky]
+    - what: circle
+      radius: screw_size
+      where:
+        ref: escape_main
+        shift: [-1ky, 1ky]
+  standoff:
+    - what: circle
+      radius: standoff_size
+      where:
+        ref: matrix_pinky_home
+        shift: [0, -1ky]
+    - what: circle
+      radius: standoff_size
+      where:
+        ref: mirror_matrix_pinky_home
+        shift: [0, -1ky]
+    - what: circle
+      radius: standoff_size
+      where:
+        ref: escape_main
+        shift: [0, -1.25ky]
+    - what: circle
+      radius: standoff_size
+      where:
+        ref: escape_main
+        shift: [1ky, 1ky]
+    - what: circle
+      radius: standoff_size
+      where:
+        ref: escape_main
+        shift: [-1ky, 1ky]
+pcbs:
+  initial:
+    outlines:
+      main:
+        outline: board
+    footprints:
+      choc_hotswap:
+        what: choc
+        where: true
+        params:
+          keycaps: true
+          reverse: false
+          hotswap: true
+          from: "{{col_net}}"
+          to: "{{colrow}}"
+      diodes:
+        what: diode
+        where: "-/^mirror_.*/"
+        params:
+          from: "{{colrow}}"
+          to: "{{row_net}}"
+        adjust:
+          shift: [7.9, -3.5]
+          rotate: 90
+      mirror_diodes:
+        what: diode
+        where: "/^mirror_.*/"
+        params:
+          from: "{{colrow}}"
+          to: "{{row_net}}"
+        adjust:
+          shift: [-7.9, -3.5]
+          rotate: -90
+      lights:
+        what: rgb
+        where: true
+        params:
+          din: P14
+          dout: P14
+          side: B
+        adjust:
+          shift: [0, -5]
+      promicro:
+        what: promicro
+        params:
+          orientation: "down"
+        where:
+          ref.aggregate.parts: [matrix_index_home, mirror_matrix_index_home]
+          shift: [0, -10]
+          rotate: -90
+      top_left_mount:
+        what: mountinghole
+        where:
+          ref: matrix_pinky_home
+          shift: [0.5ky, -1.5ky]
+      top_right_mount:
+        what: mountinghole
+        where:
+          ref: mirror_matrix_pinky_home
+          shift: [0.5ky, -1.5ky]
+      bottom_mount:
+        what: mountinghole
+        where:
+          ref: escape_main
+          shift: [0, -1.25ky]
+      middle_left_mount:
+        what: mountinghole
+        where:
+          ref: escape_main
+          shift: [1ky, 1ky]
+      middle_right_mount:
+        what: mountinghole
+        where:
+          ref: escape_main
+          shift: [-1ky, 1ky]
+cases:
+  bottom:
+    - name: board
+      extrude: 1
+  big_bottom:
+    - name: big_board
+      extrude: 1
+  _outer_wall:
+    - name: big_board
+      extrude: 5.6
+  _inner_wall:
+    - name: board
+      extrude: 5.6
+  wall:
+    - what: case
+      name: _outer_wall
+      operation: add
+    - what: case
+      name: _inner_wall
+      operation: subtract
+  _holes:
+    - name: mounting
+      extrude: 4
+      shift: [0, 0, 1]
+  _standoffs:
+    - name: standoff
+      extrude: 4
+  case:
+    - what: case
+      name: big_bottom
+      operation: add
+    - what: case
+      name: _standoffs
+      operation: add
+    - what: case
+      name: _holes
+      operation: subtract
+    - what: case
+      name: wall
+      operation: add
