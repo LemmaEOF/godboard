@@ -37,9 +37,9 @@
         "other_text_thickness": 0.15,
         "other_text_upright": false,
         "pads": {
-          "drill": 0.0,
-          "height": 1.0,
-          "width": 2.6
+          "drill": 0.762,
+          "height": 1.524,
+          "width": 1.524
         },
         "silk_line_width": 0.12,
         "silk_text_italic": false,
@@ -260,11 +260,19 @@
       },
       {
         "netclass": "Default",
+        "pattern": "pinky_bottom"
+      },
+      {
+        "netclass": "Default",
         "pattern": "pinky_home"
       },
       {
         "netclass": "Default",
         "pattern": "P15"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "ring_bottom"
       },
       {
         "netclass": "Default",
@@ -276,11 +284,19 @@
       },
       {
         "netclass": "Default",
+        "pattern": "middle_bottom"
+      },
+      {
+        "netclass": "Default",
         "pattern": "middle_home"
       },
       {
         "netclass": "Default",
         "pattern": "P7"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "index_bottom"
       },
       {
         "netclass": "Default",
@@ -308,7 +324,15 @@
       },
       {
         "netclass": "Default",
+        "pattern": "mirror_pinky_bottom"
+      },
+      {
+        "netclass": "Default",
         "pattern": "mirror_pinky_home"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "mirror_ring_bottom"
       },
       {
         "netclass": "Default",
@@ -316,7 +340,15 @@
       },
       {
         "netclass": "Default",
+        "pattern": "mirror_middle_bottom"
+      },
+      {
+        "netclass": "Default",
         "pattern": "mirror_middle_home"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "mirror_index_bottom"
       },
       {
         "netclass": "Default",
@@ -340,6 +372,10 @@
       },
       {
         "netclass": "Default",
+        "pattern": "P19"
+      },
+      {
+        "netclass": "Default",
         "pattern": "P16"
       },
       {
@@ -352,11 +388,19 @@
       },
       {
         "netclass": "Default",
+        "pattern": "P4"
+      },
+      {
+        "netclass": "Default",
         "pattern": "P6"
       },
       {
         "netclass": "Default",
         "pattern": "P9"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "P14"
       },
       {
         "netclass": "Default",
@@ -384,14 +428,6 @@
       },
       {
         "netclass": "Default",
-        "pattern": "P19"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "P14"
-      },
-      {
-        "netclass": "Default",
         "pattern": "P1"
       },
       {
@@ -405,10 +441,6 @@
       {
         "netclass": "Default",
         "pattern": "P3"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "P4"
       }
     ]
   },

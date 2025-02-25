@@ -29,6 +29,9 @@ points:
           stagger: -3
           col_net: P7
       rows:
+        bottom:
+          row_net: P19
+          mirror.row_net: P4
         home:
           row_net: P16
           mirror.row_net: P6
@@ -38,7 +41,7 @@ points:
         spread: 1kx
       anchor:
         ref: matrix_index_home
-        shift: [-21, -49]
+        shift: [-21, -70]
         rotate: 0 # -5
       columns:
         near.key:
@@ -57,7 +60,7 @@ points:
           mirror.row_net: P9
     escape:
       anchor:
-        shift: [152, -170] # [163, -160]
+        shift: [156, -170] # [163, -160]
       columns:
         main.key:
           col_net: P7
@@ -80,7 +83,7 @@ outlines:
       operation: stack
       fillet: 2
       points:
-        - ref: matrix_pinky_home
+        - ref: matrix_pinky_bottom
           shift: [-0.5px, -0.5py]
         - ref: matrix_pinky_home
           shift: [-0.5px, 0.5py]
@@ -102,7 +105,7 @@ outlines:
           shift: [-0.5px, 0.5py]
         - ref: mirror_matrix_pinky_home
           shift: [-0.5px, 0.5py]
-        - ref: mirror_matrix_pinky_home
+        - ref: mirror_matrix_pinky_bottom
           shift: [-0.5px, -0.5py]
         - ref: mirror_thumbs_near_thumb
           shift: [-0.5px, -0.5py]
@@ -117,7 +120,7 @@ outlines:
       operation: stack
       fillet: 2
       points:
-        - ref: matrix_pinky_home
+        - ref: matrix_pinky_bottom
           shift: [-0.5dpx, -0.5dpy]
         - ref: matrix_pinky_home
           shift: [-0.5dpx, 0.5dpy]
@@ -139,7 +142,7 @@ outlines:
           shift: [-0.5dpx, 0.5dpy]
         - ref: mirror_matrix_pinky_home
           shift: [-0.5dpx, 0.5dpy]
-        - ref: mirror_matrix_pinky_home
+        - ref: mirror_matrix_pinky_bottom
           shift: [-0.5dpx, -0.5dpy]
         - ref: mirror_thumbs_near_thumb
           shift: [-0.5dpx, -0.5dpy]
@@ -258,13 +261,13 @@ pcbs:
       top_left_mount:
         what: mountinghole
         where:
-          ref: matrix_pinky_home
-          shift: [0.5ky, -1.5ky]
+          ref: matrix_pinky_bottom
+          shift: [0.5ky, -1ky]
       top_right_mount:
         what: mountinghole
         where:
-          ref: mirror_matrix_pinky_home
-          shift: [0.5ky, -1.5ky]
+          ref: mirror_matrix_pinky_bottom
+          shift: [0.5ky, -1ky]
       bottom_mount:
         what: mountinghole
         where:
